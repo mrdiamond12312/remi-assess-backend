@@ -22,8 +22,12 @@ export class VideoRepository extends Repository<VideoEntity> {
     // Handle paging
     const skip =
       (paginationObject.page - 1) * paginationObject.take +
-      paginationObject.offset;
+      Number(paginationObject.offset);
+
     queryBuilder.skip(skip).take(paginationObject.take);
+
+    // Order by createdAt
+    queryBuilder.orderBy('videos.id', 'DESC');
 
     // Retrieve entities
     const itemCount = await queryBuilder.getCount();
