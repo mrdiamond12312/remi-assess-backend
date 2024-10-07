@@ -9,6 +9,7 @@ import {
 
 import { AuthModule } from '@/modules/auth/auth.module';
 import { UserModule } from '@/modules/user/user.module';
+import { VideoModule } from '@/modules/video/video.module';
 import { ApiConfigService } from '@/shared/services/api-config.service';
 import { SharedModule } from '@/shared/shared.module';
 
@@ -38,6 +39,7 @@ import { SharedModule } from '@/shared/shared.module';
     }),
     UserModule,
     AuthModule,
+    VideoModule,
   ],
 })
 export class AppModule {}

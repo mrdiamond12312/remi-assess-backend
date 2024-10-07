@@ -1,7 +1,8 @@
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 
 import { AbstractEntity } from '@/common/abstract.entity';
 import { ROLE } from '@/constants';
+import { VideoEntity } from '@/modules/video/domains/entities/video.entity';
 
 @Entity('users')
 export class UserEntity extends AbstractEntity {
@@ -43,4 +44,7 @@ export class UserEntity extends AbstractEntity {
 
   @Column({ nullable: true })
   citizenCardBack: string;
+
+  @OneToMany(() => VideoEntity, (video) => video.user)
+  videos: VideoEntity[];
 }

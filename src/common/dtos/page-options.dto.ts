@@ -9,7 +9,7 @@ export class PageOptionsDto {
   @EnumFieldOptional(() => ORDER, {
     default: ORDER.ASC,
   })
-  readonly order: OrderType = ORDER.ASC;
+  readonly order?: OrderType = ORDER.ASC;
 
   @NumberFieldOptional({
     minimum: 1,

@@ -36,27 +36,35 @@ $ npm install
 ## Makefile User (GNU chocolatey make for Windows/MacOS/Linux)
 
 ### Create .env file
+
 Copy and rename .env.example file to .env
+
 ```bash
 cp .env.example .env
 ```
 
 ### Running docker-compose
+
 ```bash
 make up
 ```
+
 The above script will do 3 things using docker-compose:
+
 - Set up the database (PostGreSQL -> port 5432).
 - Set up database management tool (PgAdmin 4 -> port 5555)
 - Build and expose the server through port 3000 (localhost:3000/api/v1/documentation to access Swagger)
 
 ### Generate migrations
+
 ```base
 make compose-generate-migrate
 ```
+
 Anytime you add a module with new entity, or changing an entity in an existing module, you will need to run this script to create a migration, which will be read by TypeORM on starting the server to update the Database in our container.
 
 ## Repo's createdby
+
 - [Nice](https://github.com/mrdiamond12312)
 - [thuanbkk20](https://github.com/thuanbkk20)
 
