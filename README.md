@@ -22,35 +22,32 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-Personal Boilerplate
+## Funny Movies - Remitano Assessment Test
+This is a Back-end Api Repository for Remitano Assessment Test, includes:
+ - User Login / SignUp
+ - Share Video, Get List of Videos with Pagination
+ - Using TypeORM to setup Database, which have users and videos Entity in migration backup.
 
 ## Installation
-
 ```bash
-$ npm install
+npm install
 ```
 
 ## Makefile User (GNU chocolatey make for Windows/MacOS/Linux)
 
 ### Create .env file
-
+(If .env file existed in this repo, skip this step)
 Copy and rename .env.example file to .env
-
 ```bash
 cp .env.example .env
 ```
 
 ### Running docker-compose
-
 ```bash
 make up
 ```
 
-The above script will do 3 things using docker-compose:
-
+The above command will do 3 things using docker-compose:
 - Set up the database (PostGreSQL -> port 5432).
 - Set up database management tool (PgAdmin 4 -> port 5555)
 - Build and expose the server through port 3000 (localhost:3000/api/v1/documentation to access Swagger)
@@ -58,15 +55,18 @@ The above script will do 3 things using docker-compose:
 ### Generate migrations
 
 ```base
-make compose-generate-migrate
+make generate-migrate
 ```
+Anytime you add a module with new entity, or changing an entity in an existing module, you will need to run this script to create a migration, which will be read by TypeORM on starting the server to update the Database.
+The migration file will be created in ```./src/database``` directory, please move the new file to ```./src/database/migrations``` to update the database schema while running the api.
 
-Anytime you add a module with new entity, or changing an entity in an existing module, you will need to run this script to create a migration, which will be read by TypeORM on starting the server to update the Database in our container.
-
-## Repo's createdby
-
+## Repository Template is created by
 - [Nice](https://github.com/mrdiamond12312)
 - [thuanbkk20](https://github.com/thuanbkk20)
+
+
+## Testing
+No test is implemented yet.
 
 ## License
 
